@@ -52,7 +52,8 @@ class TagViewSet(mixins.DestroyModelMixin,
         """Retrieve tags for authenticated user."""
         return self.queryset.filter(user=self.request.user).order_by('-name')
 
-class IngredientViewSet(mixins.ListModelMixin,
+class IngredientViewSet(mixins.DestroyModelMixin,
+                        mixins.ListModelMixin,
                         mixins.UpdateModelMixin,
                         viewsets.GenericViewSet):
     """Manage ingredients in the database."""
